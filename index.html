@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+        }
+        .chat-box {
+            width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+        .user {
+            text-align: right;
+            color: blue;
+        }
+        .bot {
+            text-align: left;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-box">
+    <h2>🤖 FAQ Chatbot</h2>
+
+    <form method="POST">
+        <input type="text" name="message" placeholder="Ask something..." style="width:70%;">
+        <button type="submit">Send</button>
+    </form>
+
+    <br>
+
+    {% if request.form.message %}
+        <p class="user"><b>You:</b> {{ request.form.message }}</p>
+        <p class="bot"><b>Bot:</b> {{ response }}</p>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
